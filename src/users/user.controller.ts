@@ -5,17 +5,17 @@ import { User } from './user.dto';
 
 @Controller('auth')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+	constructor(private readonly userService: UserService) {}
 
-  @Post('user')
-  create(@Body() user: User) {
-    return this.userService.create(user);
-  }
+	@Post('user')
+	create(@Body() user: User) {
+		return this.userService.create(user);
+	}
 
-  @Get('user')
-  @UseGuards(AuthGuard('bearer'))
-  findAll() {
-      console.log('wew')
-    return 'retristicted';
-  }
+	@Get('user')
+	@UseGuards(AuthGuard('bearer'))
+	findAll() {
+		console.log('wew');
+		return 'retristicted';
+	}
 }
